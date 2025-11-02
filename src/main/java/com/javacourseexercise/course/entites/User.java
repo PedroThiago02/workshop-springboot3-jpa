@@ -3,6 +3,8 @@ package com.javacourseexercise.course.entites;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -17,7 +19,10 @@ public class User implements Serializable {
     private String phone;
     private String password;
 
-    public User(){
+    @OneToMany(mappedBy = "client")
+    private List<Order> orders = new ArrayList<>();
+
+    public User() {
     }
 
     public User(Long id, String name, String email, String phone, String password) {
@@ -68,6 +73,10 @@ public class User implements Serializable {
         this.password = password;
     }
 
+    public List<Order> getOrders() {
+        return orders;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
@@ -79,4 +88,6 @@ public class User implements Serializable {
     public int hashCode() {
         return Objects.hashCode(id);
     }
+
+
 }
