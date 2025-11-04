@@ -1,7 +1,7 @@
 package com.javacourseexercise.course.resources;
 
-import com.javacourseexercise.course.entites.User;
-import com.javacourseexercise.course.services.UserService;
+import com.javacourseexercise.course.entites.Category;
+import com.javacourseexercise.course.services.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,21 +12,22 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/users")
-public class UserResource {
+@RequestMapping(value = "/category")
+public class CategoryResource {
 
     @Autowired
-    private UserService userService;
+    private CategoryService categoryService;
 
     @GetMapping
-    public ResponseEntity<List<User>> findAll(){
-        List<User> list = userService.findAll();
+    public ResponseEntity<List<Category>> findAll(){
+        List<Category> list = categoryService.findAll();
         return ResponseEntity.ok().body(list);
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<User> findById(@PathVariable Long id){
-         User userById = userService.findById(id);
-        return ResponseEntity.ok().body(userById);
+    public ResponseEntity<Category> findById(@PathVariable Long id){
+        Category categoryById = categoryService.findById(id);
+        return ResponseEntity.ok().body(categoryById);
     }
+
 }
