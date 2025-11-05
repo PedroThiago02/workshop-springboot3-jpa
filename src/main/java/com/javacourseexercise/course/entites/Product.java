@@ -14,12 +14,15 @@ public class Product implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private  String name;
+    private String name;
     private String description;
     private Double price;
     private String imgUrl;
 
-    @Transient
+    @ManyToMany
+    @JoinTable(name = "tb-product-category",
+            joinColumns = @JoinColumn(name = "product-id"),
+            inverseJoinColumns = @JoinColumn(name = "category-id"))
     private Set<Category> categories = new HashSet<>();
 
     public Product() {
