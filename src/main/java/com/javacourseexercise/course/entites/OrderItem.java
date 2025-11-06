@@ -18,7 +18,6 @@ public class OrderItem implements Serializable {
 
     private Integer quantity;
     private Double price;
-    private Double priceTotal;
 
     public OrderItem() {
     }
@@ -28,7 +27,6 @@ public class OrderItem implements Serializable {
         id.setProduct(product);
         this.quantity = quantity;
         this.price = price;
-        priceTotal = priceTotal(quantity,price);
     }
 
     public Integer getQuantity() {
@@ -64,12 +62,8 @@ public class OrderItem implements Serializable {
         id.setProduct(product);
     }
 
-    public double getPriceTotal(){
-        return priceTotal;
-    }
-
-    public Double priceTotal(Integer quantity, Double price){
-        return getQuantity() * getPrice();
+    public double getSubTotal(){
+        return price * quantity;
     }
 
     @Override
