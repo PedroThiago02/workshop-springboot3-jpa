@@ -9,7 +9,7 @@ import java.util.Objects;
 import java.util.Set;
 
 @Entity
-@Table(name = "tb-product")
+@Table(name = "tb_product")
 public class Product implements Serializable {
 
     @Id
@@ -21,9 +21,9 @@ public class Product implements Serializable {
     private String imgUrl;
 
     @ManyToMany
-    @JoinTable(name = "tb-product-category",
-            joinColumns = @JoinColumn(name = "product-id"),
-            inverseJoinColumns = @JoinColumn(name = "category-id"))
+    @JoinTable(name = "tb_product_category",
+            joinColumns = @JoinColumn(name = "product_id"),
+            inverseJoinColumns = @JoinColumn(name = "category_id"))
     private Set<Category> categories = new HashSet<>();
 
     @OneToMany(mappedBy = "id.product")

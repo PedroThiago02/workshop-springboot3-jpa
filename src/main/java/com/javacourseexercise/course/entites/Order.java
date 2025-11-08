@@ -12,7 +12,7 @@ import java.util.Objects;
 import java.util.Set;
 
 @Entity
-@Table(name = "tb-order")
+@Table(name = "tb_order")
 public class Order implements Serializable {
 
     @Id
@@ -23,7 +23,7 @@ public class Order implements Serializable {
     private Instant moment;
 
     @ManyToOne
-    @JoinColumn(name = "client-id")
+    @JoinColumn(name = "client_id")
     private User client;
 
     private Integer orderStatus;
