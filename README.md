@@ -70,7 +70,7 @@ Antes de rodar o projeto, certifique-se de ter:
 ## 🧱 Estrutura principal do projeto  
 
 ```
-src/main/java/com/example/course
+src/main/java/com.javacourseexercise.course
  ├── config/          # Configurações iniciais e carga de dados (seeds)
  ├── entites/         # Classes de entidade JPA (User, Order, Product, Category)
  ├── enums/           # Enumerações usadas nas entidades (ex: OrderStatus)
